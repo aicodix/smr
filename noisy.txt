@@ -3,6 +3,8 @@ set output "noisy.png"
 set xlabel "GiB written"
 set ylabel "MiB/s"
 plot \
+        "8MiB.log" u ($3/1073741824):($4/1048576) w l t "8 MiB chunks",\
+        "16MiB.log" u ($3/1073741824):($4/1048576) w l t "16 MiB chunks",\
         "32MiB.log" u ($3/1073741824):($4/1048576) w l t "32 MiB chunks",\
         "64MiB.log" u ($3/1073741824):($4/1048576) w l t "64 MiB chunks",\
         "128MiB.log" u ($3/1073741824):($4/1048576) w l t "128 MiB chunks",\
