@@ -1,0 +1,11 @@
+set term png
+set output "noisy.png"
+set xlabel "GiB written"
+set ylabel "MiB/s"
+plot \
+        "32MiB.log" u ($3/1073741824):($4/1048576) w l t "32 MiB chunks",\
+        "64MiB.log" u ($3/1073741824):($4/1048576) w l t "64 MiB chunks",\
+        "128MiB.log" u ($3/1073741824):($4/1048576) w l t "128 MiB chunks",\
+        "256MiB.log" u ($3/1073741824):($4/1048576) w l t "256 MiB chunks",\
+        "512MiB.log" u ($3/1073741824):($4/1048576) w l t "512 MiB chunks",\
+        "1GiB.log" u ($3/1073741824):($4/1048576) w l t "1 GiB chunks"
