@@ -43,7 +43,17 @@ Here the very noisy log visualized:
 ```
 # gnuplot noisy.txt
 ```
-![noisy log](noisy.png)
+![1MiB log](1MiB.png)
+![2MiB log](2MiB.png)
+![4MiB log](4MiB.png)
+![8MiB log](8MiB.png)
+![16MiB log](16MiB.png)
+![32MiB log](32MiB.png)
+![64MiB log](64MiB.png)
+![128MiB log](128MiB.png)
+![256MiB log](256MiB.png)
+![512MiB log](512MiB.png)
+![1GiB log](1GiB.png)
 
 Using exponential moving average to smooth out a little:
 (FYI: EMA filtering causes nonlinear phase delays.)

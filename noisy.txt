@@ -1,14 +1,37 @@
 set term png
-set output "noisy.png"
 set xlabel "GiB written"
 set ylabel "MiB/s"
-plot \
-        "4MiB.log" u ($3/1073741824):($4/1048576) w l t "4 MiB chunks",\
-        "8MiB.log" u ($3/1073741824):($4/1048576) w l t "8 MiB chunks",\
-        "16MiB.log" u ($3/1073741824):($4/1048576) w l t "16 MiB chunks",\
-        "32MiB.log" u ($3/1073741824):($4/1048576) w l t "32 MiB chunks",\
-        "64MiB.log" u ($3/1073741824):($4/1048576) w l t "64 MiB chunks",\
-        "128MiB.log" u ($3/1073741824):($4/1048576) w l t "128 MiB chunks",\
-        "256MiB.log" u ($3/1073741824):($4/1048576) w l t "256 MiB chunks",\
-        "512MiB.log" u ($3/1073741824):($4/1048576) w l t "512 MiB chunks",\
-        "1GiB.log" u ($3/1073741824):($4/1048576) w l t "1 GiB chunks"
+
+set output "1MiB.png"
+plot "1MiB.log" u ($3/1073741824):($4/1048576) w l t "1 MiB chunks"
+
+set output "2MiB.png"
+plot "2MiB.log" u ($3/1073741824):($4/1048576) w l t "2 MiB chunks"
+
+set output "4MiB.png"
+plot "4MiB.log" u ($3/1073741824):($4/1048576) w l t "4 MiB chunks"
+
+set output "8MiB.png"
+plot "8MiB.log" u ($3/1073741824):($4/1048576) w l t "8 MiB chunks"
+
+set output "16MiB.png"
+plot "16MiB.log" u ($3/1073741824):($4/1048576) w l t "16 MiB chunks"
+
+set output "32MiB.png"
+plot "32MiB.log" u ($3/1073741824):($4/1048576) w l t "32 MiB chunks"
+
+set output "64MiB.png"
+plot "64MiB.log" u ($3/1073741824):($4/1048576) w l t "64 MiB chunks"
+
+set output "128MiB.png"
+plot "128MiB.log" u ($3/1073741824):($4/1048576) w l t "128 MiB chunks"
+
+set output "256MiB.png"
+plot "256MiB.log" u ($3/1073741824):($4/1048576) w l t "256 MiB chunks"
+
+set output "512MiB.png"
+plot "512MiB.log" u ($3/1073741824):($4/1048576) w l t "512 MiB chunks"
+
+set output "1GiB.png"
+plot "1GiB.log" u ($3/1073741824):($4/1048576) w l t "1 GiB chunks"
+

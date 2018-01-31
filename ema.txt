@@ -2,6 +2,8 @@ set term png
 set output "ema.png"
 set xlabel "GiB written"
 set ylabel "MiB/s"
+sum1MiB = 0
+sum2MiB = 0
 sum4MiB = 0
 sum8MiB = 0
 sum16MiB = 0
@@ -12,6 +14,8 @@ sum256MiB = 0
 sum512MiB = 0
 sum1GiB = 0
 plot \
+        "1MiB.log" u ($3/1073741824):(sum1MiB=0.95*sum1MiB+0.05*$4, sum1MiB/1048576) w l t "1 MiB chunks",\
+        "2MiB.log" u ($3/1073741824):(sum2MiB=0.95*sum2MiB+0.05*$4, sum2MiB/1048576) w l t "2 MiB chunks",\
         "4MiB.log" u ($3/1073741824):(sum4MiB=0.95*sum4MiB+0.05*$4, sum4MiB/1048576) w l t "4 MiB chunks",\
         "8MiB.log" u ($3/1073741824):(sum8MiB=0.95*sum8MiB+0.05*$4, sum8MiB/1048576) w l t "8 MiB chunks",\
         "16MiB.log" u ($3/1073741824):(sum16MiB=0.95*sum16MiB+0.05*$4, sum16MiB/1048576) w l t "16 MiB chunks",\
