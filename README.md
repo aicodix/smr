@@ -44,6 +44,11 @@ Here the very noisy log visualized:
 # gnuplot noisy.txt
 ```
 ![1MiB log](1MiB.png)
+
+Noticed the downward spikes right from the beginning?
+They happen every 240 transactions, even with the bigger chunks.
+Seems that the cache works in groups of 240 transactions and needs to update a root node when the slots are full and thus taking its sweet time here.
+
 ![2MiB log](2MiB.png)
 ![4MiB log](4MiB.png)
 ![8MiB log](8MiB.png)
