@@ -38,11 +38,7 @@ Usage of ./smr:
         total bytes to write (default 1048576)
 ```
 
-Here the very noisy log visualized:
-
-```
-# gnuplot noisy.txt
-```
+Here the very noisy log made with synchronized writes at random positions:
 ![1MiB log](1MiB.png)
 
 Noticed the downward spikes right from the beginning?
@@ -63,11 +59,18 @@ Seems that the cache works in groups of 240 transactions and needs to update a r
 Using exponential moving average to smooth out a little:
 (FYI: EMA filtering causes nonlinear phase delays.)
 
-```
-# gnuplot ema.txt
-```
 ![smoothed out](ema.png)
 
 One thing can be seen immediately from the diagrams above:
 The size of the persistent cache used for the device management of the HDD must be around 32GiB.
+So we could write to the drive at random positions using small chunks up to a few GiB and then should leave it alone for some time for it to merge the writes.
+
+Doing sequential writes, as long as they are not synchronized at each write, leads to more sustained performance:
+![seq async 1MiB log](seq_async.png)
+
+If you need to know that your data has made to persistent storage by using ```-sync```, you have to take a performance hit:
+![seq sync 1MiB log](seq_sync.png)
+
+Using exponential moving average to smooth out a little:
+![smoothed out](seq_ema.png)
 

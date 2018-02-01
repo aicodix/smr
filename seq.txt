@@ -1,0 +1,18 @@
+set term png
+set xlabel "GiB written"
+set ylabel "MiB/s"
+set yrange[0:]
+
+async = 0
+sync = 0
+set output "seq_ema.png"
+plot \
+        "seq_async_1MiB.log" u ($3/1073741824):(async=0.99*async+0.01*$4, async/1048576) w l t "sequential unsynced 1 MiB chunks",\
+        "seq_sync_1MiB.log" u ($3/1073741824):(sync=0.99*sync+0.01*$4, sync/1048576) w l t "sequential synced 1 MiB chunks"
+
+set output "seq_async.png"
+plot "seq_async_1MiB.log" u ($3/1073741824):($4/1048576) w l t "sequential unsynced 1 MiB chunks"
+
+set output "seq_sync.png"
+plot "seq_sync_1MiB.log" u ($3/1073741824):($4/1048576) w l t "sequential synced 1 MiB chunks"
+
