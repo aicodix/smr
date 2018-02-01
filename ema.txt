@@ -2,6 +2,7 @@ set term png
 set output "ema.png"
 set xlabel "GiB written"
 set ylabel "MiB/s"
+set yrange[0:]
 sum1MiB = 0
 sum2MiB = 0
 sum4MiB = 0

@@ -1,6 +1,7 @@
 set term png
 set xlabel "GiB written"
 set ylabel "MiB/s"
+set yrange[0:]
 
 set output "1MiB.png"
 plot "1MiB.log" u ($3/1073741824):($4/1048576) w l t "1 MiB chunks"
