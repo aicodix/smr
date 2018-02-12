@@ -79,7 +79,7 @@ func main() {
 
 	err := ChooseScheduler(device, scheduler)
 	if err != nil {
-		fmt.Fprintln(os.Stderr, "error while setting noop scheduler:", err)
+		fmt.Fprintln(os.Stderr, "error while setting scheduler:", err)
 		return
 	}
 	flags := syscall.O_RDWR
